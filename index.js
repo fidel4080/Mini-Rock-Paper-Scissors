@@ -7,6 +7,7 @@ const computerDisplay = document.getElementById("computerDisplay");
 const resultDisplay = document.getElementById("resultDisplay");
 const playerScoreDisplay = document.getElementById("playerScoreDisplay");
 const computerScoreDisplay = document.getElementById("computerScoreDisplay");
+const resetBtn = document.getElementById("resetBtn");
 const WIN = "YOU WIN!🎉";
 const LOSE = "YOU LOSE!!";
 const TIE = "IT'S A TIE!!";
@@ -65,3 +66,12 @@ function playGame(playerChoice){
     resultDisplay.textContent = result;
 
 }
+
+resetBtn.addEventListener("click" , () => {
+    resultDisplay.classList.remove("win", "lose" );
+    playerScore = 0;
+    computerScore = 0;
+    playerScoreDisplay.textContent = playerScore;
+    computerScoreDisplay.textContent = computerScore;
+    resultDisplay.textContent = "The game has reset!";
+})
