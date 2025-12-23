@@ -18,7 +18,7 @@ let computerScore = 0;
 function playGame(playerChoice){
     
 
-    const computerChoice = choices[Math.floor( Math.random() * 3 )];    //Random index of the array 'choices'
+    const computerChoice = choices[Math.floor( Math.random() * choices.length )];    //Random index of the array 'choices'
     let result = '';
 
     if(playerChoice === computerChoice){
