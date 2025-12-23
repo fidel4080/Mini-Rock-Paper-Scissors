@@ -7,6 +7,9 @@ const computerDisplay = document.getElementById("computerDisplay");
 const resultDisplay = document.getElementById("resultDisplay");
 const playerScoreDisplay = document.getElementById("playerScoreDisplay");
 const computerScoreDisplay = document.getElementById("computerScoreDisplay");
+const WIN = "YOU WIN!🎉";
+const LOSE = "YOU LOSE!!";
+const TIE = "IT'S A TIE!!";
 let playerScore = 0;
 let computerScore = 0;
 
@@ -19,36 +22,38 @@ function playGame(playerChoice){
     let result = '';
 
     if(playerChoice === computerChoice){
-        result = "IT'S A TIE!!";
+        result = TIE;
     }
 
     else{
         switch(playerChoice){
 
             case "rock":
-                result = (computerChoice === "scissors") ? "YOU WIN!🎉" : "YOU LOSE!!";
+                result = (computerChoice === "scissors") ? WIN : LOSE;
             break;
 
             case "paper":
-                result = (computerChoice === "rock") ? "YOU WIN!🎉" : "YOU LOSE!!";
+                result = (computerChoice === "rock") ? WIN : LOSE;
             break;
 
             case "scissors":
-                result = (computerChoice === "paper") ? "YOU WIN!🎉" : "YOU LOSE!!";
+                result = (computerChoice === "paper") ? WIN : LOSE;
             break;
         }
     }
 
     resultDisplay.classList.remove("win", "lose" ); //reset the states before adding new classes
 
+    
+
     switch(result){
-        case "YOU WIN!🎉":
+        case WIN:
             resultDisplay.classList.add("win");
             playerScore ++;
             playerScoreDisplay.textContent = playerScore;
         break;
 
-        case "YOU LOSE!!":
+        case LOSE:
             resultDisplay.classList.add("lose");
             computerScore ++;
             computerScoreDisplay.textContent = computerScore;
